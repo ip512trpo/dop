@@ -1,3 +1,5 @@
 language: c++
-rvm:
- - 0.8
+script:
+	- make
+	- make test
+	
