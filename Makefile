@@ -15,6 +15,9 @@ zzz.o: zzz.cpp
 test:
 	$(CC) test.cpp zzz.cpp -o test
 
+test002:
+	$(CC) test002.cpp zzz.cpp -o test002
+
 clean:
 	rm -rf *.o dop
 
