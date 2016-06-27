@@ -2,5 +2,6 @@ language: c
 compiler: gcc
 script: 
       -make mainprog
+script: 
       -make testprog
  
