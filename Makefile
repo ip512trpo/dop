@@ -6,11 +6,11 @@ mainprog: prog
 prog: main.o root.o
 	$(CC) main.o root.o -o prog
 
-main.o: main.c
-	$(CC) $(CFLAGS) main.c
+main.o: ./src/main.c
+	$(CC) $(CFLAGS) ./src/main.c
 
-root.o: root.c
-	$(CC) $(CFLAGS) root.c
+root.o: ./src/root.c
+	$(CC) $(CFLAGS) ./src/root.c
 
 
 clean:
