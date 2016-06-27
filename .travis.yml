@@ -1,5 +1,4 @@
 language: c
 compiler: gcc
-script: 
-     - make first_test
-     - make second_test
+script: make all
+ 
