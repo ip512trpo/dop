@@ -1,36 +1,20 @@
-INCLUDES = -I src/ -I thirdparty/
-dirs = ./bin ./obj
-test_obj = ./obj/main_test.o ./obj/root.o  ./obj/root_test.o
-main_obj = ./obj/main.o ./obj/root.o 
+CC=g++
+CFLAGS=-c -Wall
 
-all: ./bin/main ./bin/test testo
+mainprog: prog
 
-./bin/main: $(dirs) $(main_obj)
-	gcc $(main_obj) -Wall -o ./bin/main -lm
+prog: main.o root.o
+	$(CC) main.o root.o -o prog
 
-./bin/test: $(dirs) $(test_obj)
-	gcc $(test_obj) -Wall -o ./bin/test -lm
+main.o: main.c
+	$(CC) $(CFLAGS) main.c
 
-testo:
-	./bin/test
+root.o: root.c
+	$(CC) $(CFLAGS) root.c
 
-$(dirs):
-	mkdir obj
-	mkdir bin
 
-./obj/main.o: ./src/main.c
-	gcc -c ./src/main.c -Wall -o ./obj/main.o $(INCLUDES)
-
-./obj/root.o: ./src/root.c
-	gcc -c ./src/root.c -Wall -o ./obj/root.o $(INCLUDES)
-
-./obj/main_test.o: ./test/main.c
-	gcc -c ./test/main.c -Wall -o ./obj/main_test.o $(INCLUDES)
-
-./obj/root_test.o: ./test/root_test.c
-	gcc -c ./test/root_test.c -Wall -o ./obj/root_test.o $(INCLUDES)
-
-.PHONY: clean
 clean:
-	rm -f -r bin/ obj/
+	rm -rf *.o prog
 
+open:
+	./prog
