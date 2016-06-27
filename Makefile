@@ -1,7 +1,7 @@
 CC=g++
 CFLAGS=-c -Wall
 
-all: dop
+all: do_pi
 
 dop: main.o zzz.o
 	$(CC) main.o zzz.o -o dop
